@@ -91,6 +91,20 @@ struct node *deleteValue(struct node *head, int key) {
 	}
 	return head;
 }
+struct node *deleteAllList(struct node *head) {
+	if (head == NULL) {
+		return 0;
+	}
+	else {
+		struct node *temp = head;
+		while (temp != NULL){
+			temp = temp->next;
+			free(head);
+			head = temp;
+		}
+		return head;
+	}
+}
 void print(struct node *head) {
 	if (head == NULL) {
 		printf("List is Empty");
@@ -154,6 +168,7 @@ int main() {
 		printf("7)Counting the elements of the list: \n");
 		printf("8)Searching the Lists              : \n");
 		printf("9)Combining two list               : \n");
+		printf("10)Delete ALL List                 : \n");
 		printf("*****************MENU****************\n");
 		printf("\n");
 		printf("Choose your choice: ");
@@ -194,6 +209,9 @@ int main() {
 			break;
 		case 9:
 			head = combine(head, head2);
+			break;
+		case 10:
+			head = deleteAllList(head);
 			break;
 		default:
 			exit(1);
