@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define STACK_SÝZE 5
+#define STACK_SÃZE 5
 struct node {
 	int data;
 	struct node *next;
@@ -11,7 +11,7 @@ struct stack {
 	struct stack *top;
 };
 int isFull(struct stack *stk) {
-	if (stk->cnt == STACK_SÝZE) {
+	if (stk->cnt == STACK_SÃZE) {
 		return 1;
 	}
 	else
@@ -30,14 +30,14 @@ void initialize(struct stack *stk) {
 void push(struct stack *stk, int key) {
 	if (isFull(stk))
 		printf("Stack is FULL"); 
-	else if (stk->cnt == STACK_SÝZE) {
+	else if (stk->cnt == STACK_SÃZE) {
 		struct node *temp = (struct node *)malloc(sizeof(struct node));
 		temp->data = key;
 		temp->next = NULL;
 		stk->top = temp;
 		stk->cnt++;
 	}
-	else if(stk->cnt != STACK_SÝZE){
+	else if(stk->cnt != STACK_SÃZE){
 		struct node *temp = (struct node *)malloc(sizeof(struct node));
 		temp->data = key;
 		temp->next = stk->top;
@@ -48,7 +48,7 @@ void push(struct stack *stk, int key) {
 
 int pop(struct stack *stk) {
 	if (isEmpty(stk))
-		printf("Stack bostur...\n");
+		printf("Stack is Empty...\n");
 	else {
 		struct node *temp = stk->top;
 		stk->top = temp->next;
